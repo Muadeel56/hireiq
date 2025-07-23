@@ -1,0 +1,109 @@
+name: Bug Report
+description: Report a bug in HireIQ
+title: "[BUG] "
+labels: ["type:bug"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! 🐛
+        
+        Please provide as much detail as possible to help us reproduce and fix the issue.
+
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Bug Description
+      description: A clear description of what the bug is
+      placeholder: Describe the bug you encountered
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this bug?
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: What should happen instead?
+      placeholder: Describe what you expected to happen
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: Actual Behavior
+      description: What actually happened?
+      placeholder: Describe what actually happened
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Level
+      description: How critical is this bug?
+      options:
+        - 🔥 Critical - Application crash or data loss
+        - ⚡ High - Major functionality broken
+        - 📝 Medium - Minor functionality issue
+        - 🔮 Low - Cosmetic or minor issue
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of the application is affected?
+      options:
+        - 🎨 Frontend - React/UI related
+        - ⚙️ Backend - Django/API related
+        - 🤖 AI - AI/ML functionality
+        - 🗄️ Database - Database design/queries
+        - 🔐 Auth - Authentication/authorization
+        - 📊 Analytics - Analytics and reporting
+        - 💰 Payments - Subscription and billing
+        - 🔔 Notifications - Notification system
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser
+      description: What browser are you using?
+      placeholder: Chrome, Firefox, Safari, Edge, etc.
+    validations:
+      required: false
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      description: What operating system are you using?
+      placeholder: Windows, macOS, Linux, etc.
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other context, screenshots, or error messages
+      placeholder: Add any additional context, screenshots, or error logs here
+    validations:
+      required: false 

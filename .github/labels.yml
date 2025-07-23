@@ -1,0 +1,136 @@
+# GitHub Labels Configuration for HireIQ
+# This file can be used with GitHub CLI to create all labels at once
+
+# Priority Labels
+- name: "priority:critical"
+  color: "d73a4a"
+  description: "Must be completed for milestone success"
+
+- name: "priority:high"
+  color: "fbca04"
+  description: "Important for user experience"
+
+- name: "priority:medium"
+  color: "0e8a16"
+  description: "Nice to have, can be delayed"
+
+- name: "priority:low"
+  color: "1d76db"
+  description: "Future enhancement"
+
+# Type Labels
+- name: "type:bug"
+  color: "d73a4a"
+  description: "Something isn't working"
+
+- name: "type:feature"
+  color: "0e8a16"
+  description: "New feature or enhancement"
+
+- name: "type:improvement"
+  color: "1d76db"
+  description: "Improve existing functionality"
+
+- name: "type:documentation"
+  color: "0075ca"
+  description: "Documentation updates"
+
+- name: "type:testing"
+  color: "fef2c0"
+  description: "Test-related tasks"
+
+- name: "type:infrastructure"
+  color: "5319e7"
+  description: "DevOps, deployment, setup"
+
+- name: "type:task"
+  color: "7057ff"
+  description: "Development task"
+
+# Status Labels
+- name: "status:blocked"
+  color: "d73a4a"
+  description: "Cannot proceed due to dependencies"
+
+- name: "status:in-review"
+  color: "fbca04"
+  description: "Under code review"
+
+- name: "status:ready"
+  color: "0e8a16"
+  description: "Ready to start development"
+
+- name: "status:in-progress"
+  color: "1d76db"
+  description: "Currently being worked on"
+
+# Area Labels
+- name: "area:frontend"
+  color: "0e8a16"
+  description: "React/UI related"
+
+- name: "area:backend"
+  color: "1d76db"
+  description: "Django/API related"
+
+- name: "area:ai"
+  color: "5319e7"
+  description: "AI/ML functionality"
+
+- name: "area:database"
+  color: "0075ca"
+  description: "Database design/queries"
+
+- name: "area:auth"
+  color: "fef2c0"
+  description: "Authentication/authorization"
+
+- name: "area:analytics"
+  color: "7057ff"
+  description: "Analytics and reporting"
+
+- name: "area:payments"
+  color: "d93f0b"
+  description: "Subscription and billing"
+
+- name: "area:notifications"
+  color: "fef2c0"
+  description: "Notification system"
+
+# Complexity Labels
+- name: "complexity:small"
+  color: "0e8a16"
+  description: "1-2 days"
+
+- name: "complexity:medium"
+  color: "fbca04"
+  description: "3-5 days"
+
+- name: "complexity:large"
+  color: "d93f0b"
+  description: "1-2 weeks"
+
+- name: "complexity:epic"
+  color: "5319e7"
+  description: "2+ weeks"
+
+# Milestone Labels
+- name: "milestone:foundation"
+  color: "0e8a16"
+  description: "Foundation & Authentication"
+
+- name: "milestone:ai-parsing"
+  color: "1d76db"
+  description: "AI Resume & Job Parsing"
+
+- name: "milestone:matching"
+  color: "fbca04"
+  description: "Matching Algorithm & Core Features"
+
+- name: "milestone:analytics"
+  color: "5319e7"
+  description: "Analytics & Advanced Features"
+
+- name: "milestone:production"
+  color: "d73a4a"
+  description: "Production & Launch" 

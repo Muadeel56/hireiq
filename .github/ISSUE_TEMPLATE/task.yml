@@ -1,0 +1,111 @@
+name: Development Task
+description: Create a development task for HireIQ
+title: "[TASK] "
+labels: ["type:task"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Development task for HireIQ 🛠️
+        
+        Use this template for development tasks, improvements, and infrastructure work.
+
+  - type: textarea
+    id: task-description
+    attributes:
+      label: Task Description
+      description: Describe the development task
+      placeholder: What needs to be implemented or improved?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: task-type
+    attributes:
+      label: Task Type
+      description: What type of task is this?
+      options:
+        - ✨ Feature - New functionality
+        - 🔧 Improvement - Enhance existing functionality
+        - 🛠️ Infrastructure - DevOps, deployment, setup
+        - 📚 Documentation - Documentation updates
+        - 🧪 Testing - Test-related tasks
+        - 🔍 Refactoring - Code refactoring
+        - 🐛 Bug Fix - Fix existing issues
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Level
+      description: How important is this task?
+      options:
+        - 🔥 Critical - Must be completed for milestone success
+        - ⚡ High - Important for user experience
+        - 📝 Medium - Nice to have, can be delayed
+        - 🔮 Low - Future enhancement
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of the application does this affect?
+      options:
+        - 🎨 Frontend - React/UI related
+        - ⚙️ Backend - Django/API related
+        - 🤖 AI - AI/ML functionality
+        - 🗄️ Database - Database design/queries
+        - 🔐 Auth - Authentication/authorization
+        - 📊 Analytics - Analytics and reporting
+        - 💰 Payments - Subscription and billing
+        - 🔔 Notifications - Notification system
+        - 🐳 DevOps - Infrastructure and deployment
+    validations:
+      required: true
+
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: Estimated Complexity
+      description: How complex is this task to implement?
+      options:
+        - 🟢 Small - 1-2 days
+        - 🟡 Medium - 3-5 days
+        - 🔴 Large - 1-2 weeks
+        - 🟣 Epic - 2+ weeks
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: List the specific requirements for this task
+      placeholder: |
+        - [ ] Criterion 1
+        - [ ] Criterion 2
+        - [ ] Criterion 3
+    validations:
+      required: true
+
+  - type: textarea
+    id: technical-notes
+    attributes:
+      label: Technical Notes
+      description: Any technical considerations, dependencies, or implementation details
+      placeholder: Add technical notes, dependencies, or implementation approach
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any additional information or context
+      placeholder: Add any additional context, references, or examples here
+    validations:
+      required: false 

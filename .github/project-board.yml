@@ -1,0 +1,124 @@
+# GitHub Project Board Configuration for HireIQ
+# This file defines the project board structure and automation rules
+
+name: "HireIQ Development Board"
+description: "AI-Powered Freelance-Recruiter Matchmaking Platform Development"
+
+# Project Board Columns
+columns:
+  - name: "📝 Backlog"
+    description: "New issues not yet prioritized"
+    
+  - name: "🎯 Sprint Planning"
+    description: "Issues selected for current sprint"
+    
+  - name: "🚦 Ready"
+    description: "Issues ready to start development"
+    
+  - name: "🔄 In Progress"
+    description: "Currently being worked on"
+    
+  - name: "👀 In Review"
+    description: "Code review and testing phase"
+    
+  - name: "✅ Done"
+    description: "Completed and deployed"
+    
+  - name: "🚫 Blocked"
+    description: "Issues waiting on dependencies"
+    
+  - name: "🔮 Future"
+    description: "Ideas for future iterations"
+
+# Automation Rules
+automation:
+  # Move to "In Progress" when issue is assigned
+  - trigger: "issue_assigned"
+    action: "move_to_column"
+    column: "🔄 In Progress"
+    
+  # Move to "In Review" when PR is created
+  - trigger: "pull_request_opened"
+    action: "move_to_column"
+    column: "👀 In Review"
+    
+  # Move to "Done" when PR is merged
+  - trigger: "pull_request_merged"
+    action: "move_to_column"
+    column: "✅ Done"
+    
+  # Move to "Blocked" when status:blocked label is added
+  - trigger: "label_added"
+    label: "status:blocked"
+    action: "move_to_column"
+    column: "🚫 Blocked"
+    
+  # Move to "In Progress" when status:in-progress label is added
+  - trigger: "label_added"
+    label: "status:in-progress"
+    action: "move_to_column"
+    column: "🔄 In Progress"
+    
+  # Move to "Ready" when status:ready label is added
+  - trigger: "label_added"
+    label: "status:ready"
+    action: "move_to_column"
+    column: "🚦 Ready"
+
+# Milestone Tracking
+milestones:
+  - name: "🌱 Foundation & Authentication"
+    description: "Week 1-3: Set up core infrastructure, authentication, and basic user management"
+    
+  - name: "🔍 AI Resume & Job Parsing"
+    description: "Week 4-6: Implement AI-powered document parsing and data extraction"
+    
+  - name: "🎯 Matching Algorithm & Core Features"
+    description: "Week 7-10: Build the core matching engine and essential platform features"
+    
+  - name: "📊 Analytics & Advanced Features"
+    description: "Week 11-13: Add analytics dashboard, advanced filtering, and optimization features"
+    
+  - name: "🚀 Production & Launch"
+    description: "Week 14-16: Production deployment, testing, and launch preparation"
+
+# Sprint Planning Guidelines
+sprint_planning:
+  duration: "2 weeks"
+  capacity_per_developer: "10 story points"
+  velocity_target: "80 story points per sprint"
+  
+  # Priority order for issue selection
+  priority_order:
+    - "priority:critical"
+    - "priority:high"
+    - "priority:medium"
+    - "priority:low"
+    
+  # Complexity limits per sprint
+  complexity_limits:
+    - "complexity:epic: 1 per sprint"
+    - "complexity:large: 2 per sprint"
+    - "complexity:medium: 4 per sprint"
+    - "complexity:small: unlimited"
+
+# Definition of Done
+definition_of_done:
+  - "Code is written and follows project standards"
+  - "Unit tests are written and passing"
+  - "Integration tests are written and passing"
+  - "Code review is completed and approved"
+  - "Documentation is updated"
+  - "Feature is tested in staging environment"
+  - "Deployment to production is successful"
+  - "Issue is closed with proper documentation"
+
+# Definition of Ready
+definition_of_ready:
+  - "Issue description is clear and complete"
+  - "Acceptance criteria are well-defined"
+  - "Technical approach is outlined"
+  - "Dependencies are identified"
+  - "Story points are estimated"
+  - "Issue is assigned to a developer"
+  - "All required labels are applied" 

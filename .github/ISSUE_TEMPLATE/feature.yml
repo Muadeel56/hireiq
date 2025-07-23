@@ -1,0 +1,94 @@
+name: Feature Request
+description: Suggest a new feature for HireIQ
+title: "[FEATURE] "
+labels: ["type:feature"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to suggest a new feature for HireIQ! 🚀
+        
+        Please provide as much detail as possible to help us understand your request.
+
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Feature Description
+      description: Describe the feature you'd like to see implemented
+      placeholder: What would you like to see added to HireIQ?
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use Case
+      description: How would this feature benefit users?
+      placeholder: Describe the specific use case and user benefit
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Level
+      description: How important is this feature?
+      options:
+        - 🔥 Critical - Must have for core functionality
+        - ⚡ High - Important for user experience
+        - 📝 Medium - Nice to have
+        - 🔮 Low - Future enhancement
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of the application does this affect?
+      options:
+        - 🎨 Frontend - React/UI related
+        - ⚙️ Backend - Django/API related
+        - 🤖 AI - AI/ML functionality
+        - 🗄️ Database - Database design/queries
+        - 🔐 Auth - Authentication/authorization
+        - 📊 Analytics - Analytics and reporting
+        - 💰 Payments - Subscription and billing
+        - 🔔 Notifications - Notification system
+    validations:
+      required: true
+
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: Estimated Complexity
+      description: How complex is this feature to implement?
+      options:
+        - 🟢 Small - 1-2 days
+        - 🟡 Medium - 3-5 days
+        - 🔴 Large - 1-2 weeks
+        - 🟣 Epic - 2+ weeks
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: List the specific requirements for this feature
+      placeholder: |
+        - [ ] Criterion 1
+        - [ ] Criterion 2
+        - [ ] Criterion 3
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any additional information, mockups, or examples
+      placeholder: Add any additional context, screenshots, or examples here
+    validations:
+      required: false 

@@ -6,6 +6,10 @@ import sys
 
 def main():
     """Run administrative tasks."""
+    # Set default environment to development if not specified
+    if 'ENVIRONMENT' not in os.environ:
+        os.environ['ENVIRONMENT'] = 'development'
+    
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hireiq_backend.settings')
     try:
         from django.core.management import execute_from_command_line

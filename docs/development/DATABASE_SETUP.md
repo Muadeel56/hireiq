@@ -104,55 +104,55 @@ The application supports different database configurations for different environ
 
 The project includes several utility scripts for database management:
 
-### Database Backup (`scripts/db_backup.py`)
+### Database Backup (`infrastructure/scripts/db_backup.py`)
 Creates timestamped backups of the PostgreSQL database.
 
 ```bash
 # Create a custom format backup (recommended)
-python scripts/db_backup.py
+python infrastructure/scripts/db_backup.py
 
 # Create a plain SQL backup
-python scripts/db_backup.py --format plain
+python infrastructure/scripts/db_backup.py --format plain
 
 # Create a directory format backup
-python scripts/db_backup.py --format directory
+python infrastructure/scripts/db_backup.py --format directory
 
 # List existing backups
-python scripts/db_backup.py --list
+python infrastructure/scripts/db_backup.py --list
 
 # Clean up old backups (keep 10 most recent)
-python scripts/db_backup.py --cleanup 10
+python infrastructure/scripts/db_backup.py --cleanup 10
 ```
 
-### Database Restore (`scripts/db_restore.py`)
+### Database Restore (`infrastructure/scripts/db_restore.py`)
 Restores database from backup files.
 
 ```bash
 # List available backups
-python scripts/db_restore.py --list
+python infrastructure/scripts/db_restore.py --list
 
 # Restore from a specific backup
-python scripts/db_restore.py --file backups/hireiq_backup_20231213_143022.dump
+python infrastructure/scripts/db_restore.py --file backups/hireiq_backup_20231213_143022.dump
 
 # Restore with connection dropping (for active databases)
-python scripts/db_restore.py --file backups/backup.dump --drop-existing
+python infrastructure/scripts/db_restore.py --file backups/backup.dump --drop-existing
 ```
 
-### Database Health Check (`scripts/db_health_check.py`)
+### Database Health Check (`infrastructure/scripts/db_health_check.py`)
 Monitors database health and performance.
 
 ```bash
 # Run basic health check
-python scripts/db_health_check.py
+python infrastructure/scripts/db_health_check.py
 
 # Verbose output with detailed information
-python scripts/db_health_check.py --verbose
+python infrastructure/scripts/db_health_check.py --verbose
 
 # JSON output for monitoring systems
-python scripts/db_health_check.py --json
+python infrastructure/scripts/db_health_check.py --json
 
 # Exit with error code if unhealthy (for CI/CD)
-python scripts/db_health_check.py --exit-code
+python infrastructure/scripts/db_health_check.py --exit-code
 ```
 
 ## 🏥 Health Monitoring

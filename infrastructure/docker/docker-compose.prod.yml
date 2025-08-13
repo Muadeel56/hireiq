@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  backend:
+    environment:
+      - DEBUG=0
+      - DJANGO_SETTINGS_MODULE=hireiq_backend.settings.production
+    restart: unless-stopped
+    command: gunicorn hireiq_backend.wsgi:application --bind 0.0.0.0:8000
+
+  frontend:
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    command: npm run build && npm run preview -- --host 0.0.0.0
+
+  db:
+    restart: unless-stopped
+    volumes:
+      - postgres_prod_data:/var/lib/postgresql/data
+
+  nginx:
+    restart: unless-stopped
+
+volumes:
+  postgres_prod_data: 

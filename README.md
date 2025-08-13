@@ -54,19 +54,37 @@ gh project view 5 --owner Muadeel56
 
 ```
 hireiq/
+├── frontend/                   # React application
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   ├── Dockerfile
+│   └── .gitignore
+├── backend/                    # Django application  
+│   ├── hireiq_backend/
+│   ├── api/
+│   ├── requirements.txt
+│   ├── manage.py
+│   └── .env
+├── docs/                       # All documentation
+│   ├── README.md              # Main project documentation
+│   ├── api/                   # API documentation
+│   ├── deployment/            # Deployment guides
+│   ├── development/           # Development setup
+│   ├── architecture/          # System architecture
+│   └── github-issues/         # GitHub milestone planning
+├── infrastructure/             # DevOps and infrastructure
+│   ├── docker/                # Docker configurations
+│   ├── scripts/               # Automation scripts
+│   ├── monitoring/            # Monitoring configs
+│   └── deployment/            # Deployment configs
 ├── .github/                    # GitHub configurations
+│   ├── workflows/             # GitHub Actions
 │   ├── ISSUE_TEMPLATE/        # Issue templates
-│   ├── labels.yml             # Label definitions
-│   └── project-board.yml      # Project board config
-├── scripts/                   # Essential scripts
-│   ├── create_issues.sh       # Create GitHub issues
-│   └── add_all_issues_to_board.sh # Add issues to project board
-├── github-issues/             # Issue definitions
-├── django/                    # Backend application
-├── react/                     # Frontend application
-├── PROJECT_PLAN.md           # Detailed project plan
-├── PROJECT_BOARD_ORGANIZATION.md # Board organization guide
-└── setup_github.sh           # One-click GitHub setup
+│   └── pull_request_template.md
+├── docker-compose.yml          # Main orchestration (references infrastructure/docker/)
+├── .gitignore
+└── README.md                  # Project overview
 ```
 
 ## 🎯 Development Phases

@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  backend:
+    environment:
+      - DEBUG=1
+      - DJANGO_SETTINGS_MODULE=hireiq_backend.settings.development
+    volumes:
+      - ./backend:/app
+      - ./backend/logs:/app/logs
+    command: python manage.py runserver 0.0.0.0:8000
+
+  frontend:
+    environment:
+      - NODE_ENV=development
+      - VITE_API_URL=http://localhost:8000
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: npm run dev -- --host 0.0.0.0
+
+  db:
+    environment:
+      - POSTGRES_DB=hireiq_dev_db
+      - POSTGRES_USER=hireiq_dev_user  
+      - POSTGRES_PASSWORD=hireiq_dev_password
+    ports:
+      - "5433:5432"  # Different port for dev to avoid conflicts 

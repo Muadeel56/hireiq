@@ -233,7 +233,7 @@ def main():
         backups = list_available_backups()
         if backups:
             print(f"\n💡 To restore a backup, use:")
-            print(f"python scripts/db_restore.py --file backups/BACKUP_NAME")
+            print(f"python infrastructure/scripts/db_restore.py --file backups/BACKUP_NAME")
     elif args.file:
         success = restore_database(args.file, args.type, args.drop_existing)
         sys.exit(0 if success else 1)

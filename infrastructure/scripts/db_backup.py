@@ -181,7 +181,7 @@ def main():
         if backup_file:
             print(f"\n💡 To restore this backup, use:")
             if args.format == 'custom':
-                print(f"python scripts/db_restore.py --file {backup_file}")
+                print(f"python infrastructure/scripts/db_restore.py --file {backup_file}")
             elif args.format == 'plain':
                 print(f"psql -h localhost -U hireiq_user -d hireiq_db < {backup_file}")
 

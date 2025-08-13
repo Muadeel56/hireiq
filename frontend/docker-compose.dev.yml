@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  hireiq-frontend-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - REACT_APP_API_URL=http://localhost:8000/api
+      - REACT_APP_ENVIRONMENT=development
+    networks:
+      - hireiq-network
+
+  hireiq-frontend-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000/api
+      - REACT_APP_ENVIRONMENT=production
+    networks:
+      - hireiq-network
+
+networks:
+  hireiq-network:
+    driver: bridge 

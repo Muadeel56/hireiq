@@ -5,22 +5,61 @@ services:
     environment:
       - DEBUG=0
       - DJANGO_SETTINGS_MODULE=hireiq_backend.settings.production
+      - REDIS_URL=redis://redis:6379/0
     restart: unless-stopped
-    command: gunicorn hireiq_backend.wsgi:application --bind 0.0.0.0:8000
+    command: gunicorn hireiq_backend.wsgi:application --bind 0.0.0.0:8000 --workers 4 --timeout 120
 
   frontend:
+    build:
+      target: production
     environment:
       - NODE_ENV=production
+      - VITE_API_URL=/api
     restart: unless-stopped
-    command: npm run build && npm run preview -- --host 0.0.0.0
 
   db:
     restart: unless-stopped
     volumes:
       - postgres_prod_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=hireiq_prod_db
+      - POSTGRES_USER=hireiq_prod_user
+      - POSTGRES_PASSWORD=hireiq_prod_password
+
+  redis:
+    restart: unless-stopped
+    environment:
+      - REDIS_PASSWORD=prod_redis_password
+    command: redis-server --appendonly yes --requirepass prod_redis_password --maxmemory 512mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis_prod_data:/data
 
   nginx:
     restart: unless-stopped
+    # Uncomment for SSL in production
+    # volumes:
+    #   - ./ssl/certs:/etc/ssl/certs
+    #   - ./ssl/private:/etc/ssl/private
+
+  # Future Celery worker service
+  # celery:
+  #   build:
+  #     context: ./backend
+  #     dockerfile: ../infrastructure/docker/Dockerfile.backend
+  #   environment:
+  #     - DEBUG=0
+  #     - DJANGO_SETTINGS_MODULE=hireiq_backend.settings.production
+  #     - REDIS_URL=redis://redis:6379/1
+  #     - CELERY_BROKER_URL=redis://redis:6379/1
+  #     - CELERY_RESULT_BACKEND=redis://redis:6379/1
+  #   depends_on:
+  #     - db
+  #     - redis
+  #   networks:
+  #     - hireiq_network
+  #   restart: unless-stopped
+  #   command: celery -A hireiq_backend worker -l info
 
 volumes:
-  postgres_prod_data: 
+  postgres_prod_data:
+  redis_prod_data: 

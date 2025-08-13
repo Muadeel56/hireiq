@@ -1,5 +1,5 @@
-version: '3.8'
-
+# Development overrides - automatically loaded by docker-compose
+# This file contains development-specific configurations
 services:
   backend:
     environment:
@@ -20,7 +20,7 @@ services:
     volumes:
       - ./frontend:/app
       - /app/node_modules
-    command: npm run dev -- --host 0.0.0.0
+    command: npm run dev -- --host 0.0.0.0 --port 5173
 
   db:
     environment:
@@ -31,9 +31,7 @@ services:
       - "5433:5432"  # Different port for dev to avoid conflicts
 
   redis:
-    environment:
-      - REDIS_PASSWORD=dev_redis_password
-    command: redis-server --appendonly yes --requirepass dev_redis_password --maxmemory 128mb --maxmemory-policy allkeys-lru
+    command: redis-server --appendonly yes --maxmemory 128mb --maxmemory-policy allkeys-lru
 
   nginx:
     ports:

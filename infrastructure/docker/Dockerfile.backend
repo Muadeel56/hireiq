@@ -4,7 +4,10 @@ FROM python:3.11-slim
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
-ENV ENVIRONMENT=production
+
+# Build-time environment selector (development by default)
+ARG BUILD_ENV=development
+ENV ENVIRONMENT=${BUILD_ENV}
 
 # Set work directory
 WORKDIR /app
@@ -27,8 +30,8 @@ COPY . .
 # Create logs directory
 RUN mkdir -p logs
 
-# Collect static files
-RUN python manage.py collectstatic --noinput
+# Collect static files only for production builds
+RUN if [ "$BUILD_ENV" = "production" ]; then python manage.py collectstatic --noinput; fi
 
 # Create non-root user
 RUN adduser --disabled-password --gecos '' django

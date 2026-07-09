@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 from django.core.management import call_command
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.db import connection
 
 
@@ -28,6 +28,7 @@ class Command(BaseCommand):
         call_command('migrate')
         
         # Create superuser if it doesn't exist
+        User = get_user_model()
         if not User.objects.filter(username='admin').exists():
             self.stdout.write('Creating superuser...')
             User.objects.create_superuser(

@@ -60,8 +60,6 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./infrastructure/scripts:/docker-entrypoint-initdb.d
-    ports:
-      - "5432:5432"
     networks:
       - hireiq_network
     healthcheck:

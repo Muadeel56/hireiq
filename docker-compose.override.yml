@@ -28,7 +28,7 @@ services:
       - POSTGRES_USER=hireiq_dev_user  
       - POSTGRES_PASSWORD=hireiq_dev_password
     ports:
-      - "5433:5432"  # Different port for dev to avoid conflicts
+      - "5434:5432"  # Different port for dev to avoid conflicts
 
   redis:
     command: redis-server --appendonly yes --maxmemory 128mb --maxmemory-policy allkeys-lru
